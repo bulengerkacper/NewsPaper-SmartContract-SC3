@@ -1,7 +1,10 @@
 pragma solidity ^0.8.11;
 //SPDX-License-Identifier: GPL-3.0
 
-contract NewsPapa {
+contract NewsPaper {
+
+    string news_paper_name;
+    uint creation_date;
 
     struct News {
         address owner;
@@ -12,10 +15,18 @@ contract NewsPapa {
 
     News[] public news;
 
-    constructor() {}
+    constructor(string memory _news_paper_name) {
+        news_paper_name = _news_paper_name;
+        creation_date = block.timestamp;
+    }
 
     function create_news(bytes memory _title, bytes memory _content) public {
         News memory _inject = News(address(msg.sender),block.timestamp,_title, _content);
         news.push(_inject);
     }
 }
+
+
+//todo add unique id for news since one creator can make a many news at
+//add voting for new news
+//consider how to add one photo to news, but no needed.
