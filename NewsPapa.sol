@@ -21,7 +21,7 @@ contract NewsPaper {
     constructor(string memory _news_paper_name) {
         news_paper_name = _news_paper_name;
         creation_date = block.timestamp;
-        static_news_id=0;
+        static_news_id = 0;
         news_paper_owner = msg.sender;
     }
 
@@ -31,14 +31,14 @@ contract NewsPaper {
     }
 
     function reward_news_creator(uint _news_id) public payable {
-            address _news_owner;
-            for (uint i=0; i < news.length; i++) {
-                if(news[i].id==_news_id) {
-                    _news_owner=news[i].owner;
-                }
+        address _news_owner;
+        for (uint i=0; i < news.length; i++) {
+            if(news[i].id ==_news_id) {
+                _news_owner = news[i].owner;
             }
-            payable(_news_owner).transfer(msg.value*99/100);
-            payable(news_paper_owner).transfer(msg.value*1/100);
+        }
+        payable(_news_owner).transfer(msg.value * 99/100);
+        payable(news_paper_owner).transfer(msg.value * 1/100);
     }
 }
 
