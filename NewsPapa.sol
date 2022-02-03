@@ -5,7 +5,7 @@ contract NewsPaper {
 
     string news_paper_name;
     uint creation_date;
-    uint static_news_id;
+    uint private static_news_id; 
     address news_paper_owner;
 
     struct News {
