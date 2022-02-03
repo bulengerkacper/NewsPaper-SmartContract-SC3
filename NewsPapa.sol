@@ -12,8 +12,8 @@ contract NewsPaper {
         uint id;
         address owner;
         uint date;
-        bytes title;
-        bytes content;
+        string title;
+        string content; 
     }
 
     News[] public news;
@@ -25,7 +25,7 @@ contract NewsPaper {
         news_paper_owner = msg.sender;
     }
 
-    function create_news(bytes memory _title, bytes memory _content) public {
+    function create_news(string memory _title, string memory _content) public {
         News memory _inject = News(++static_news_id, address(msg.sender), block.timestamp, _title, _content);
         news.push(_inject);
     }
@@ -46,6 +46,4 @@ contract NewsPaper {
 TODOS: 
 -voting and giving money to post author
 -comments sytem !? - maybe should be based not on struct
-
-
 */
