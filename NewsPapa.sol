@@ -5,7 +5,7 @@ contract NewsPaper {
 
     string news_paper_name;
     uint creation_date;
-    uint static_id;
+    uint static_news_id;
 
     struct News {
         uint id;
@@ -20,11 +20,13 @@ contract NewsPaper {
     constructor(string memory _news_paper_name) {
         news_paper_name = _news_paper_name;
         creation_date = block.timestamp;
-        static_id=0;
+        static_news_id=0;
     }
 
     function create_news(bytes memory _title, bytes memory _content) public {
-        News memory _inject = News(++static_id, address(msg.sender), block.timestamp, _title, _content);
+        News memory _inject = News(++static_news_id, address(msg.sender), block.timestamp, _title, _content);
         news.push(_inject);
     }
+
+
 }
