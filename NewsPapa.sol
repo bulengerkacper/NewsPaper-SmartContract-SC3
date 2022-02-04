@@ -40,10 +40,18 @@ contract NewsPaper {
         payable(_news_owner).transfer(msg.value * 99/100);
         payable(news_paper_owner).transfer(msg.value * 1/100);
     }
+
+    modifier only_owner {
+		require(msg.sender == news_paper_owner," you are not an admin");
+		_;
+	}
+
+    function red_button() public only_owner {
+        delete news;
+    }
 }
 
 /*
 TODOS: 
--voting and giving money to post author
--comments sytem !? - maybe should be based not on struct
+-comments sytem !? - maybe should be based not on smart contract - during consideration
 */
