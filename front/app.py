@@ -24,7 +24,8 @@ def read_specific_news(numb):
 
 @app.route("/papay/menu")
 def menu():
-    menu="<a href='"'papay/add'"'>Add</a></span>"
+    menu="<a href='"'papay/add'"'>Add</a>"
+    menu+="&emsp;"
     menu+="<a href='"'papay/read'"'>Read</a>"
     return str(menu)
 
