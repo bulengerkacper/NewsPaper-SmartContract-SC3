@@ -2,15 +2,20 @@ logo {
     font-size:32px;
     color:rgb(175, 175, 69);
     position:absolute;
-    top:5%;
+    top:3%;
 }
 
 slogan {
     position:absolute;
-    top: 10%;
+    top: 8%;
     font-size:10px;
 }
 
+menu {
+    position:absolute;
+    top: 13%;
+
+}
 body {
     background-color:rgb(25, 23, 32);
     color:white;
@@ -19,13 +24,16 @@ body {
 .news_title{
     position:absolute;
     top:20%;
+    left:5%;
     width:20%;
     height:5%;
 }
 
 .news_area{
     position:absolute;
-    top:32%;
+    top:30%;
+    left:5%;
+
     width:40%;
     height:40%;
 }
@@ -33,16 +41,28 @@ body {
 .gaz{
     position:absolute;
     top:45%;
+    left:5%;
+
     width:20%;
     height:10%;
 }
 
 .push_on_a_stack {
     position:absolute;
-    top:55%;
+    top:58%;
+    left:5%
+
 }
 
 .Rules{
     width:30%;
     height:5%;
+}
+
+footer {
+    font-size:8px;
+    color:rgb(175, 175, 69);
+    position:absolute;
+    bottom:5%;
+    left:50%;
 }
