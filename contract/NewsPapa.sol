@@ -54,4 +54,5 @@ contract NewsPaper {
 /*
 TODOS: 
 -comments sytem !? - maybe should be based not on smart contract - during consideration
+-counting awards
 */
