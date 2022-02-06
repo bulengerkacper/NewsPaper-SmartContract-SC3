@@ -39,11 +39,6 @@ contract NewsPaper {
         news.push(_inject);
     }
 
-    function create_comment(uint _id_of_news, string memory _message, string memory _pseudonim) public {
-        Comment memory _inject = Comment(++static_comment_id,_id_of_news, _message,_pseudonim);
-        comments.push(_inject);
-    }
-
     function reward_news_creator(uint _news_id) public payable {
         address _news_owner;
         for (uint i=0; i < news.length; i++) {
@@ -55,12 +50,19 @@ contract NewsPaper {
         payable(news_paper_owner).transfer(msg.value * 1/100);
     }
 
-    modifier only_owner {
+
+    function create_comment(uint _id_of_news, string memory _message, string memory _pseudonim) public {
+        Comment memory _inject = Comment(++static_comment_id,_id_of_news, _message,_pseudonim);
+        comments.push(_inject);
+    }
+
+
+    modifier only_admin {
 		require(msg.sender == news_paper_owner," you are not an admin");
 		_;
 	}
 
-    function red_button() public only_owner {
+    function red_button() public only_admin {
         delete news;
     }
 }
