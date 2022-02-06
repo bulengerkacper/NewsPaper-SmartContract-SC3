@@ -21,32 +21,32 @@ body {
     color:white;
 }
 
-.news_title{
+.new_news_title{
     position:absolute;
     top:20%;
     left:5%;
     width:20%;
-    height:10px;
 }
 
-.gaz{
+.new_news_gaz{
     position:absolute;
     top:20%;
     left:25%;
 }
 
-.news_area{
-    position:absolute;
+.new_news_area{
+    width: 44%;
+    height: 60%;
+    position:relative;
     top:35%;
     left:5%;
-    width: 40%;
-    height: 800px;
+ 
 }
 
 
 .push_on_a_stack {
     position:absolute;
-    top:58%;
+    top:70%;
     left:5%
 
 }

@@ -5,7 +5,7 @@ $.get('/papay/menu',  // url
 
 $.get('/papay/rules',  // url
     function (data, textStatus, jqXHR) {  
-    $('rules').append(data);
+    $('rules_data').append(data);
 });
 
 function myFunction() {
