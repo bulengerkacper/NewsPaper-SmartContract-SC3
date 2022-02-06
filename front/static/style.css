@@ -26,26 +26,23 @@ body {
     top:20%;
     left:5%;
     width:20%;
-    height:5%;
-}
-
-.news_area{
-    position:absolute;
-    top:30%;
-    left:5%;
-
-    width:60%;
-    height:60%;
+    height:10px;
 }
 
 .gaz{
     position:absolute;
-    top:45%;
-    left:5%;
-
-    width:20%;
-    height:10%;
+    top:20%;
+    left:25%;
 }
+
+.news_area{
+    position:absolute;
+    top:35%;
+    left:5%;
+    width: 40%;
+    height: 800px;
+}
+
 
 .push_on_a_stack {
     position:absolute;
@@ -55,8 +52,18 @@ body {
 }
 
 .Rules{
+    position: absolute;
+    top:20%;
+    right:5%;
     width:30%;
     height:5%;
+}
+
+.News {
+    position: absolute;
+    top:20%;
+    width: 60%;
+    height:20%
 }
 
 footer {
