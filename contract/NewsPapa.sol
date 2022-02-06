@@ -5,7 +5,8 @@ contract NewsPaper {
 
     string news_paper_name;
     uint creation_date;
-    uint private static_news_id; 
+    uint private static_news_id;
+    uint private static_comment_id; 
     address news_paper_owner;
 
     struct News {
@@ -16,7 +17,15 @@ contract NewsPaper {
         string content; 
     }
 
+    struct Comment {
+        uint comment_id;
+        uint id_of_news;
+        string message;
+        string pseudonim;
+    }
+
     News[] public news;
+    Comment[] public comments;
 
     constructor(string memory _news_paper_name) {
         news_paper_name = _news_paper_name;
@@ -28,6 +37,11 @@ contract NewsPaper {
     function create_news(string memory _title, string memory _content) public {
         News memory _inject = News(++static_news_id, address(msg.sender), block.timestamp, _title, _content);
         news.push(_inject);
+    }
+
+    function create_comment(uint _id_of_news, string memory _message, string memory _pseudonim) public {
+        Comment memory _inject = Comment(++static_comment_id,_id_of_news, _message,_pseudonim);
+        comments.push(_inject);
     }
 
     function reward_news_creator(uint _news_id) public payable {
