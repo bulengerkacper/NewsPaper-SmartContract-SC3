@@ -86,7 +86,7 @@ contract NewsPaper {
         delete news[_id];
     }
 
-    function remove_comment(uint256 _id) public only_admin {
+    function remove_comment(uint256 _id) public only_admin {    
         delete comments[_id];
     }
 }
@@ -94,6 +94,5 @@ contract NewsPaper {
 /*
 TODOS: 
 - rewrite to u256
--comments sytem !? - maybe should be based not on smart contract - during consideration
--counting awards
+- anti multiple comments in same time system
 */
