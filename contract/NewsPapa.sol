@@ -20,6 +20,7 @@ contract NewsPaper {
     struct Comment {
         uint comment_id;
         uint id_of_news;
+        address owner;
         string message;
         string pseudonim;
     }
@@ -44,6 +45,7 @@ contract NewsPaper {
         for (uint i=0; i < news.length; i++) {
             if(news[i].id ==_news_id) {
                 _news_owner = news[i].owner;
+                break;
             }
         }
         payable(_news_owner).transfer(msg.value * 99/100);
@@ -52,17 +54,29 @@ contract NewsPaper {
 
 
     function create_comment(uint _id_of_news, string memory _message, string memory _pseudonim) public {
-        Comment memory _inject = Comment(++static_comment_id,_id_of_news, _message,_pseudonim);
+        Comment memory _inject = Comment(++static_comment_id, _id_of_news, msg.sender, _message,_pseudonim);
         comments.push(_inject);
     }
 
+    function reward_comment_creator(uint _comment_id) public payable {
+        address _comment_owner;
+        for(uint i=0; i < comments.length; i++) {
+            if(comments[i].comment_id == _comment_id) {
+                _comment_owner = comments[i].owner;
+                break;
+            }
+        }
+        payable(_comment_owner).transfer(msg.value*99/100);
+        payable(news_paper_owner).transfer(msg.value * 1/100);
+    }
 
-    modifier only_admin {
+
+    modifier only_owner {
 		require(msg.sender == news_paper_owner," you are not an admin");
 		_;
 	}
 
-    function red_button() public only_admin {
+    function red_button() public only_owner {
         delete news;
     }
 }
