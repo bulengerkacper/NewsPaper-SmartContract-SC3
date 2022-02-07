@@ -10,7 +10,7 @@ contract NewsPaper {
     address news_paper_owner;
 
     struct News {
-        uint id;
+        uint256 id;
         address owner;
         uint date;
         string title;
@@ -18,8 +18,8 @@ contract NewsPaper {
     }
 
     struct Comment {
-        uint comment_id;
-        uint id_of_news;
+        uint256 comment_id;
+        uint256 id_of_news;
         address owner;
         string message;
         string pseudonim;
