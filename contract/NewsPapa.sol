@@ -71,12 +71,12 @@ contract NewsPaper {
     }
 
 
-    modifier only_owner {
+    modifier only_admin {
 		require(msg.sender == news_paper_owner," you are not an admin");
 		_;
 	}
 
-    function red_button() public only_owner {
+    function red_button() public only_admin {
         delete news;
     }
 }
