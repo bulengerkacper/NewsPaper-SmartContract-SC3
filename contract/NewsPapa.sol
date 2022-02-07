@@ -80,6 +80,7 @@ contract NewsPaper {
 
     function red_button() public only_admin {
         delete news;
+        delete comments;
     }
 
     function remove_news(uint256 _id) public only_admin {
