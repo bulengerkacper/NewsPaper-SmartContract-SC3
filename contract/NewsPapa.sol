@@ -81,6 +81,14 @@ contract NewsPaper {
     function red_button() public only_admin {
         delete news;
     }
+
+    function remove_news(uint256 _id) public only_admin {
+        delete news[_id];
+    }
+
+    function remove_comment(uint256 _id) public only_admin {
+        delete comments[_id];
+    }
 }
 
 /*
