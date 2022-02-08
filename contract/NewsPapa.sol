@@ -72,6 +72,14 @@ contract NewsPaper {
         payable(news_paper_owner).transfer(msg.value * 1/100);
     }
 
+    function get_current_news_id() public view returns (uint256) {
+        return static_news_id;
+    }
+
+    function get_current_commend_id() public view returns (uint256) {
+        return static_comment_id;
+    }
+
 
     modifier only_admin {
 		require(msg.sender == news_paper_owner," you are not an admin");
