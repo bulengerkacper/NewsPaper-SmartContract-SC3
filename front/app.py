@@ -2,24 +2,24 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-@app.route("/papay")
+@app.route("/")
 def main():
     return render_template("index.html")
 
-@app.route("/papay/add", methods = ['POST', 'GET'])
+@app.route("/add", methods = ['POST', 'GET'])
 def add_news():
     return render_template("add.html")
 
-@app.route("/papay/read/<numb>")
+@app.route("/read/<numb>")
 def read_specific_news(numb):
     avg=""
     return str(avg)
 
-@app.route("/papay/menu")
+@app.route("/menu")
 def menu():
-    menu="<a href='"'/papay/add'"'>Add</a>"
+    menu="<a href='"'/add'"'>Add</a>"
     menu+="&emsp;"
-    menu+="<a href='"'/papay'"'>Read</a>"
+    menu+="<a href='"'/'"'>Read</a>"
     return str(menu)
 
 def convert_file_into_text(filename):
@@ -28,7 +28,7 @@ def convert_file_into_text(filename):
     text_file.close()
     return data
 
-@app.route("/papay/rules")
+@app.route("/rules")
 def get_rules():
     cont = convert_file_into_text("static/rules")
     return cont

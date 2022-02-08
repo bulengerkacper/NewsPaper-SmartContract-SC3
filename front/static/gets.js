@@ -12,6 +12,106 @@ abi = [
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "_id_of_news",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_message",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_pseudonim",
+				"type": "string"
+			}
+		],
+		"name": "create_comment",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_title",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_content",
+				"type": "string"
+			}
+		],
+		"name": "create_news",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "red_button",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
+		"name": "remove_comment",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
+		"name": "remove_news",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_comment_id",
+				"type": "uint256"
+			}
+		],
+		"name": "reward_comment_creator",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_news_id",
+				"type": "uint256"
+			}
+		],
+		"name": "reward_news_creator",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "string",
 				"name": "_news_paper_name",
 				"type": "string"
@@ -60,44 +160,29 @@ abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [
+		"inputs": [],
+		"name": "get_current_commend_id",
+		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "_id_of_news",
+				"name": "",
 				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_message",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_pseudonim",
-				"type": "string"
 			}
 		],
-		"name": "create_comment",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
-		"inputs": [
+		"inputs": [],
+		"name": "get_current_news_id",
+		"outputs": [
 			{
-				"internalType": "string",
-				"name": "_title",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_content",
-				"type": "string"
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
-		"name": "create_news",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -138,39 +223,6 @@ abi = [
 		],
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "red_button",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_comment_id",
-				"type": "uint256"
-			}
-		],
-		"name": "reward_comment_creator",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_news_id",
-				"type": "uint256"
-			}
-		],
-		"name": "reward_news_creator",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
 	}
 ]
 
@@ -205,4 +257,13 @@ function addComment() {
     var pseudonim = document.getElementById("textarea_field_pseudonim").value;
     contract.methods.create_comment(0,"First comment","Writter1").call((err, result) => { console.log(result) })
 }
-  
+
+
+function getNews(id) {
+	var output = contract.methods.news(id).call((err, result) => { console.log(result) })
+}
+
+function getLastXItems(howmany) {
+	var end_of_range=contract.methods.get_current_commend_id.call((err, result) => { console.log(result) })
+	var begin_of_range=end_of_range-100;
+}
