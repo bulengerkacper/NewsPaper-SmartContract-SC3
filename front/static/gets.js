@@ -1,9 +1,9 @@
-$.get('/papay/menu',
+$.get('/menu',
     function (data, textStatus, jqXHR) {  
     $('menu').append(data);
 });
 
-$.get('/papay/rules',
+$.get('/rules',
     function (data, textStatus, jqXHR) {  
     $('rules_data').append(data);
 });
