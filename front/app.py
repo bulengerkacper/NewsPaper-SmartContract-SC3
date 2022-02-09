@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-
+from block import *
 app = Flask(__name__)
 
 @app.route("/")
@@ -32,6 +32,13 @@ def convert_file_into_text(filename):
 def get_rules():
     cont = convert_file_into_text("static/rules")
     return cont
+
+@app.route("/check_b")
+def check_b():
+    print(web3.isConnected())
+    return ""
+
+
 
 if __name__ == "__main__":
     app.config['TEMPLATES_AUTO_RELOAD'] = True
