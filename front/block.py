@@ -14,5 +14,7 @@ print(returned)
 
 
 def addNews(name,content,gaz):
-    ret_val=contract_instance.functions.create_news(name,content)
-    print("add news content:" + ret_val)
+    ret_val=contract_instance.functions.create_news(name,content).call()
+    print("chain_czek")
+    print(ret_val)
+    # print("add news content:" + ret_val)

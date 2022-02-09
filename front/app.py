@@ -6,9 +6,18 @@ app = Flask(__name__)
 def main():
     return render_template("index.html")
 
-@app.route("/add", methods = ['POST', 'GET'])
+@app.route("/add", methods = ['POST','GET'])
 def add_news():
-    return render_template("add.html")
+    if request.method == "POST":
+        json=request.get_json()
+        print(json)
+        print(json['name'])
+        print(json['message'])
+        print(json['gas'])
+        return addNews(json['name'],json['message'],json['gas'])
+    else:
+        return render_template("add.html")
+
 
 @app.route("/read/<numb>")
 def read_specific_news(numb):
