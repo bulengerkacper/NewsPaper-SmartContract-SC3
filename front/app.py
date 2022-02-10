@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
+from flask_api import status
 from block import *
 app = Flask(__name__)
 
@@ -14,7 +15,8 @@ def add_news():
         print(json['name'])
         print(json['message'])
         print(json['gas'])
-        return addNews(json['name'],json['message'],json['gas'])
+        addNews(json['name'],json['message'],json['gas'])
+        return "gites"
     else:
         return render_template("add.html")
 

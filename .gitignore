@@ -2,3 +2,27 @@ front\__pycache__\
 node_modules
 package.json
 package-lock.json
+front\__pycache__
+
+{
+    "readyState": 4,
+    "responseText": "<link href=\"https://fonts.googleapis.com/css?family=Press+Start+2P\" rel=\"stylesheet\">\n<link href=\"https://unpkg.com/nes.css/css/nes.css\" rel=\"stylesheet\" />\n<link rel=\"stylesheet\" href=\"../static/style.css\">\n<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js\"></script>\n\n<script src=\"../static/gets.js\"></script>\n\n<title>papa.io</title>\n<logo>papa.io</logo>\n<slogan>First news paper based on blockchain technology.</slogan>\n<menu></menu>\n\n  <div class=\"rules\">\n    <div class=\"nes-container is-dark with-title\">\n        <p class=\"title\">Creator Rules</p>\n        <rules_data></rules_data>\n    </div>\n  </div>\n\n  <div class=\"new_news_title\">\n  <label for=\"textarea_field\">News Title</label>\n  <textarea id=\"textarea_field_news_title\" class=\"nes-textarea\"></textarea>\n  </div>\n\n  <div class=\"new_news_area\">\n  <label for=\"textarea_field\">News Content</label>\n  <textarea id=\"textarea_field_news_content\" class=\"nes-textarea\" style=\"height:40%;\"></textarea>\n  </div>\n\n  <div class=\"new_news_gaz\">\n  <label for=\"textarea_field\">gaz</label>\n  <textarea id=\"textarea_field_gas\" class=\"nes-textarea\"></textarea>\n  </div>\n\n  <div class=\"push_on_a_stack\">\n  <button type=\"button\" onclick=\"addNews()\" class=\"nes-btn is-success\">Push news on a stack</button>\n  </div>\n\n<footer>\n  <a href=\"#\" class=\"nes-badge\" style=\"width:100px;\">\n    <span class=\"is-warning\">papa.io 2022</span>\n  </a>\n</footer>",
+    "status": 200,
+    "statusText": "OK"
+}
+{
+    "readyState": 4,
+    "responseText": "<link href=\"https://fonts.googleapis.com/css?family=Press+Start+2P\" rel=\"stylesheet\">\n<link href=\"https://unpkg.com/nes.css/css/nes.css\" rel=\"stylesheet\" />\n<link rel=\"stylesheet\" href=\"../static/style.css\">\n<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js\"></script>\n\n<script src=\"../static/gets.js\"></script>\n\n<title>papa.io</title>\n<logo>papa.io</logo>\n<slogan>First news paper based on blockchain technology.</slogan>\n<menu></menu>\n\n  <div class=\"rules\">\n    <div class=\"nes-container is-dark with-title\">\n        <p class=\"title\">Creator Rules</p>\n        <rules_data></rules_data>\n    </div>\n  </div>\n\n  <div class=\"new_news_title\">\n  <label for=\"textarea_field\">News Title</label>\n  <textarea id=\"textarea_field_news_title\" class=\"nes-textarea\"></textarea>\n  </div>\n\n  <div class=\"new_news_area\">\n  <label for=\"textarea_field\">News Content</label>\n  <textarea id=\"textarea_field_news_content\" class=\"nes-textarea\" style=\"height:40%;\"></textarea>\n  </div>\n\n  <div class=\"new_news_gaz\">\n  <label for=\"textarea_field\">gaz</label>\n  <textarea id=\"textarea_field_gas\" class=\"nes-textarea\"></textarea>\n  </div>\n\n  <div class=\"push_on_a_stack\">\n  <button type=\"button\" onclick=\"addNews()\" class=\"nes-btn is-success\">Push news on a stack</button>\n  </div>\n\n<footer>\n  <a href=\"#\" class=\"nes-badge\" style=\"width:100px;\">\n    <span class=\"is-warning\">papa.io 2022</span>\n  </a>\n</footer>",
+    "status": 200,
+    "statusText": "OK"
+}
+
+
+{
+    "readyState": 4,
+    "responseText": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+    "status": 404,
+    "statusText": "NOT FOUND"
+}
+
+curl -X POST -H "Content-Type: application/json" -d '{"name": "linuxize", "title": "linuxize@example.com"}' http://127.0.0.1/add_contract

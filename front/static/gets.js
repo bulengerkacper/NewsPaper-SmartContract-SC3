@@ -22,9 +22,8 @@ function addNews() {
 	data: JSON.stringify({ "name": title,"message":content,"gas":gaz }),
 	//data: JSON.stringify({ "name": title }),
 	success: function (result) {
-		console.log("sukces")
 	},
-	error: function (error) { console.error(error) }
+	error: function (error) { }
 	});
     //location.reload();
 
