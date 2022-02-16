@@ -18,6 +18,9 @@ def addNews(name,content,gaz):
     print(ret_val)
     # print("add news content:" + ret_val)
 
+def addComment(message,pseudonim,gaz):
+    ret_val=contract_instance.functions.create_news()
+
 def getLastXNews(amount):
     returned=contract_instance.functions.get_current_news_id().call()
     val=0

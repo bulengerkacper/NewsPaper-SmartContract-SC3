@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from flask_api import status
 from block import *
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'tests'
 
 @app.route("/")
 def main():
@@ -20,6 +21,17 @@ def add_news():
     else:
         return render_template("add.html")
 
+@app.route("/addComment", methods = ['POST','GET'])
+def add_comment():
+    if request.method == "POST":
+        json=request.get_json()
+        print(json['message'])
+        print(json['pseudonim'])
+        print(json['gas'])
+        addComment(json['message'],json['pseudonim'],json['gas'])
+        return "gites"
+    else:
+        return render_template("add.html")
 
 @app.route("/read/<numb>")
 def read_specific_amont_of_news(numb):
@@ -49,6 +61,14 @@ def check_b():
     print(web3.isConnected())
     return ""
 
+@app.get('/set_wallet/<wallet_address>')
+def set_wallet_session(wallet_address):
+    session['wallet_address'] = wallet_address
+    return ""
+
+@app.get('/get_wallet')
+def get_wallet():
+    return session['wallet_address']
 
 if __name__ == "__main__":
     app.config['TEMPLATES_AUTO_RELOAD'] = True
