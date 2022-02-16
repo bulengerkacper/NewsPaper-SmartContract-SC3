@@ -7,14 +7,22 @@ url="https://ropsten.infura.io/v3/ba21b4d517ff44faa90e11145185d65d"
 web3 = Web3(Web3.HTTPProvider(url))
 print(web3.isConnected())
 
-#contract="https://ropsten.etherscan.io/tx/0xedd44734041c54c10cb3cc5290aca5d91435d3980702a1befda2d55625916922"
 contract_instance = web3.eth.contract(address=contract_2, abi=abis) 
 returned=contract_instance.functions.get_current_news_id().call()
 print(returned)
 
-
 def addNews(name,content,gaz):
-    ret_val=contract_instance.functions.create_news(name,content).call()
+    web.eth.accounts[0]
+    ret_val=contract_instance.functions.create_news(name,content).call({'from': web3.eth.accounts[0]})
     print("chain_czek")
     print(ret_val)
     # print("add news content:" + ret_val)
+
+def getLastXNews(amount):
+    returned=contract_instance.functions.get_current_news_id().call()
+    val=0
+    while val < returned:
+        fetched_data = contract_instance.functions.news(val).call()
+        print("title: "+fetched_data[3])
+        print("content: "+fetched_data[4])
+        val=val+1

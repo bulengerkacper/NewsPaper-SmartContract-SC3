@@ -22,9 +22,9 @@ def add_news():
 
 
 @app.route("/read/<numb>")
-def read_specific_news(numb):
-    avg=""
-    return str(avg)
+def read_specific_amont_of_news(numb):
+    data=getLastXNews(numb)
+    return str(data)
 
 @app.route("/menu")
 def menu():
@@ -48,7 +48,6 @@ def get_rules():
 def check_b():
     print(web3.isConnected())
     return ""
-
 
 
 if __name__ == "__main__":
