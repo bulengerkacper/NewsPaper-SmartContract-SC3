@@ -21,8 +21,12 @@ def addNews(name,content,gaz):
 def getLastXNews(amount):
     returned=contract_instance.functions.get_current_news_id().call()
     val=0
+    news_fetched=""
     while val < returned:
         fetched_data = contract_instance.functions.news(val).call()
         print("title: "+fetched_data[3])
         print("content: "+fetched_data[4])
+        news_fetched+="title: "+fetched_data[3]+"</br>"
+        news_fetched+="content: "+fetched_data[4]+"</br>"
         val=val+1
+    return news_fetched

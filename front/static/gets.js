@@ -9,6 +9,11 @@ $.get('/rules',
 });
 
 
+$.get('/read/10',
+    function (data, textStatus, jqXHR) {  
+    $('news_fetched_from_bc').append(data);
+});
+
 function addNews() {
     var title = document.getElementById("textarea_field_news_title").value;
     var content = document.getElementById("textarea_field_news_content").value;
