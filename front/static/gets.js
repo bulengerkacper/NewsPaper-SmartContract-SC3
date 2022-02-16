@@ -1,3 +1,4 @@
+MERCHANT_ACCOUNT = '0x076EDD82193Ce262442e92fa4e31eBb61ED1485e'
 $.get('/menu',
     function (data, textStatus, jqXHR) {  
     $('menu').append(data);
@@ -113,6 +114,61 @@ function handleAccountsChanged(accounts) {
 
 function set_wallet_address(wallet_address) {
     $.get("set_wallet/"+wallet_address, function(data, status){
-
   });
 }
+
+function addOrder(wallet_address,tx,name,invoice_id) {
+    $.post("add_order/",
+        { wallet_address: wallet_address, tx: tx,name:name,invoice_id:invoice_id },
+            function(data, status){
+                if(data == 'OK') {
+                    alert('Order placed successfully')
+                } else {
+                    alert('Order could not place successfully')
+                }
+    });
+}
+
+
+$('.btn-buy').click(function() {
+    let price = $(this).data("price")
+    let name = $(this).data("name")
+    console.log(name,price)
+    eth_wei = ethUnit.toWei(price, 'ether');
+    console.log('RESULT ='+eth_wei)
+    console.log('Wallet ='+currentAccount)
+    console.log('RESULT IN HEX ='+eth_wei.toString(16))
+    let invoice_id = 'INV-'+makeid(5)
+    console.log(invoice_id)
+
+    const transactionParameters = {
+          nonce: '0x00', // ignored by MetaMask
+          gasPrice: '0x01184e72a000', // customizable by user during MetaMask confirmation.
+          gas: '0x22710', // customizable by user during MetaMask confirmation.
+          to: MERCHANT_ACCOUNT, // Required except during contract publications.
+          from: currentAccount, // must match user's active address.
+          value: eth_wei.toString(16),
+          data:utf8ToHex(invoice_id),
+          chainId: '0x3', // Used to prevent transaction reuse across blockchains. Auto-filled by MetaMask.
+        };
+        //console.log(transactionParameters)
+
+        if(currentAccount != null) {
+            const txHash = ethereum.request({
+             method: 'eth_sendTransaction',
+             params: [transactionParameters],
+            })
+            .then(function(tx){
+                console.log('Transaction Hash ='+tx)
+                console.log('Wallet Inside ='+currentAccount)
+                console.log('Product Name ='+name)
+                console.log('Invoice ID = '+invoice_id)
+                addOrder(currentAccount,tx,name,invoice_id)
+            })
+            .catch((error) => {
+                console.log('Error during the transaction')
+                console.log(error)
+            });
+        }
+
+});
