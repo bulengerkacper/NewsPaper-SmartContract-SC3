@@ -26,3 +26,26 @@ front\__pycache__
 }
 
 curl -X POST -H "Content-Type: application/json" -d '{"name": "linuxize", "title": "linuxize@example.com"}' http://127.0.0.1/add_contract
+node_modules
+.env
+coverage
+coverage.json
+typechain
+typechain-types
+
+#Hardhat files
+cache
+artifacts
+
+
+node_modules
+.env
+coverage
+coverage.json
+typechain
+typechain-types
+
+#Hardhat files
+cache
+artifacts
+
