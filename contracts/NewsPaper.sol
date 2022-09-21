@@ -31,7 +31,7 @@ contract NewsPaper {
     constructor(string calldata _news_paper_name) {
         news_paper_name = _news_paper_name;
         creation_date = block.timestamp;
-        static_news_id = 0;
+        static_news_id = 0; 
         news_paper_owner = msg.sender;
     }
 
@@ -54,7 +54,7 @@ contract NewsPaper {
     }
 
 
-    function create_comment(string calldata _message, string calldata _pseudonim) public payable {
+    function create_comment(string calldata _message, string calldata _pseudonim,uint256 calldata _id_of_news) public payable {
         Comment calldata _inject = Comment(++static_comment_id, _id_of_news, msg.sender, _message,_pseudonim);
         comments.push(_inject);
         payable(news_paper_owner).transfer(msg.value);
