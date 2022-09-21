@@ -28,7 +28,7 @@ contract NewsPaper {
     News[] public news;
     Comment[] public comments;
 
-    constructor(string calldata _news_paper_name) {
+    constructor(string memory _news_paper_name) {
         news_paper_name = _news_paper_name;
         creation_date = block.timestamp;
         static_news_id = 0; 
@@ -36,7 +36,7 @@ contract NewsPaper {
     }
 
     function create_news(string calldata _title, string calldata _content) public payable {
-        News _inject = News(++static_news_id, address(msg.sender), block.timestamp, _title, _content);
+        News memory _inject = News(++static_news_id, address(msg.sender), block.timestamp, _title, _content);
         news.push(_inject);
         payable(news_paper_owner).transfer(msg.value);
     }
@@ -54,8 +54,8 @@ contract NewsPaper {
     }
 
 
-    function create_comment(string calldata _message, string calldata _pseudonim,uint256 calldata _id_of_news) public payable {
-        Comment calldata _inject = Comment(++static_comment_id, _id_of_news, msg.sender, _message,_pseudonim);
+    function create_comment(string calldata _message, string calldata _pseudonim,uint256 _id_of_news) public payable {
+        Comment memory _inject = Comment(++static_comment_id, _id_of_news, msg.sender, _message,_pseudonim);
         comments.push(_inject);
         payable(news_paper_owner).transfer(msg.value);
     }
