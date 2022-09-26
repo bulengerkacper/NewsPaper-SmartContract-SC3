@@ -3,8 +3,8 @@ pragma solidity ^0.8.11;
 
 contract NewsPaper {
 
-    uint256 static_news_id;
-    uint256 static_comment_id; 
+    uint256 public static_news_id;
+    uint256 public static_comment_id; 
     address news_paper_owner;
 
     struct News {
