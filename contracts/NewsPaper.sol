@@ -23,8 +23,8 @@ contract NewsPaper {
         string pseudonim;
     }
 
-    mapping(uint256 => News) news;
-    mapping(uint256 => Comment) comments;
+    mapping(uint256 => News) public news;
+    mapping(uint256 => Comment) public comments;
 
     constructor() {
         static_news_id = 0; 
@@ -36,6 +36,14 @@ contract NewsPaper {
         News memory _inject = News(++static_news_id, address(msg.sender), block.timestamp, _title, _content);
         news[static_news_id] = _inject;
         payable(news_paper_owner).transfer(msg.value);
+    }
+
+    function get_news(uint256 _id)  public view returns (News memory ) {
+        return news[_id];
+    }
+
+    function get_comment(uint256 _id)  public view returns (Comment memory ) {
+        return comments[_id];
     }
 
     function reward_news_creator(uint _news_id) public payable {
