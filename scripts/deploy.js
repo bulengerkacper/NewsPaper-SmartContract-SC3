@@ -7,15 +7,14 @@
 const hre = require("hardhat");
 
 async function main() {
-  const paper_name = "Papiez polak";
 
-  const Lock = await hre.ethers.getContractFactory("NewsPaper");
-  const NewsPaper = await Lock.deploy( { value: paper_name });
+  const c_fc = await hre.ethers.getContractFactory("NewsPaper");
+  const NewsPaper = await c_fc.deploy();
 
   await NewsPaper.deployed();
 
   console.log(
-    `Contract with news paper ${paper_name} deployed to ${NewsPaper.address}`
+    `Contract with news paper deployed to ${NewsPaper.address}`
   );
 }
 
